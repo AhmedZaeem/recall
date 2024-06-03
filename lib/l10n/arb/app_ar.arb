@@ -1,0 +1,7 @@
+{
+    "@@locale": "ar",
+    "counterAppBarTitle": " عداد النقرات",
+    "@counterAppBarTitle": {
+        "description": " عنوان شريط التطبيق"
+    }
+}

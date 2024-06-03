@@ -1,0 +1,28 @@
+name: recall
+description: A simple flashcards app that can be benifital for students who want to memorize some definitions
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: "^3.3.0"
+
+dependencies:
+  bloc: ^8.1.4
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  flutter_localizations:
+    sdk: flutter
+  flutter_screenutil: ^5.9.3
+  intl: ^0.19.0
+
+dev_dependencies:
+  bloc_test: ^9.1.7
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.3
+  very_good_analysis: ^5.1.0
+
+flutter:
+  uses-material-design: true
+  generate: true
