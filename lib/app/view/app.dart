@@ -1,51 +1,73 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recall/app/theme/cubit.dart';
-import 'package:recall/counter/counter.dart';
+import 'package:recall/home/home.dart';
 import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
+
+class ScreenUtilInitClass extends StatelessWidget {
+  const ScreenUtilInitClass({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      splitScreenMode: true,
+      builder: (context, _) => const App(),
+    );
+  }
+}
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      builder: (context, _) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider<ThemeCubit>(
-              create: (BuildContext context) => ThemeCubit(),
-            ),
-            BlocProvider<LocalizationCubit>(
-              create: (BuildContext context) => LocalizationCubit(),
-            ),
-          ],
-          child: BlocBuilder<ThemeCubit, ThemeMode>(
-            builder: (context, theme) {
-              return BlocBuilder<LocalizationCubit, int>(
-                builder: (BuildContext context, int state) {
-                  return MaterialApp(
-                    themeMode: theme,
-                    darkTheme: ThemeData.dark(),
-                    theme: ThemeData(
-                      appBarTheme: AppBarTheme(
-                        backgroundColor:
-                            Theme.of(context).colorScheme.inversePrimary,
-                      ),
-                      useMaterial3: true,
-                    ),
-                    localizationsDelegates:
-                        AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    locale: AppLocalizations.supportedLocales[state],
-                    home: const CounterPage(),
-                  );
-                },
-              );
-            },
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>(
+          create: (BuildContext context) => ThemeCubit(),
+        ),
+        BlocProvider<LocalizationCubit>(
+          create: (BuildContext context) => LocalizationCubit(),
+        ),
+      ],
+      child: const AppBuilder(),
+    );
+  }
+}
+
+class AppBuilder extends StatelessWidget {
+  const AppBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, theme) {
+        return LocalizationBuilder(theme: theme);
+      },
+    );
+  }
+}
+
+class LocalizationBuilder extends StatelessWidget {
+  const LocalizationBuilder({required this.theme, super.key});
+  final ThemeMode theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LocalizationCubit, int>(
+      builder: (BuildContext context, int state) {
+        ScreenUtil.init(context);
+        return MaterialApp(
+          themeMode: theme,
+          darkTheme: FlexThemeData.dark(scheme: FlexScheme.deepPurple),
+          theme: FlexThemeData.light(scheme: FlexScheme.deepPurple),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: AppLocalizations.supportedLocales[state],
+          home: const HomeView(),
         );
       },
     );
