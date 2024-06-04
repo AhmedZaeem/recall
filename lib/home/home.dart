@@ -1,1 +1,1 @@
-export 'package:recall/home/view/home_view.dart';
+export 'package:recall/home/presentation/views/home_view.dart';

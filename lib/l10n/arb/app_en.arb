@@ -1,7 +1,8 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "settings": "Settings",
+    "darkTheme": "Dark Theme",
+    "language" : "Language",
+    "flashcards" : "Flashcards",
+    "quizzes" : "Quizzes"
 }

@@ -1,7 +1,8 @@
 {
     "@@locale": "ar",
-    "counterAppBarTitle": " عداد النقرات",
-    "@counterAppBarTitle": {
-        "description": " عنوان شريط التطبيق"
-    }
+    "settings": " الإعدادات",
+     "darkTheme" : "الوضع الليلي",
+    "language": "اللغة",
+  "flashcards" : "بطاقات تعليمية",
+  "quizzes" : "اختبارات"
 }
