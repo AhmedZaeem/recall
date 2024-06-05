@@ -7,6 +7,8 @@
   "quizzes" : "اختبارات",
   "policies" : "سياسات الخصوصية",
   "contactUs": "اتصل بنا",
-  "deleteAppData" : "حذف بيانات التطبيق"
+  "deleteAppData" : "حذف بيانات التطبيق",
+  "edit": "تعديل",
+  "delete": "حذف"
 
 }

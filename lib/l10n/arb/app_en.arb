@@ -7,5 +7,7 @@
     "quizzes" : "Quizzes",
     "policies" : "Privacy policies",
     "contactUs": "Contact us for feedback",
-    "deleteAppData" : "Clear app data"
+    "deleteAppData" : "Clear app data",
+    "edit" : "Edit",
+    "delete" : "Delete"
 }

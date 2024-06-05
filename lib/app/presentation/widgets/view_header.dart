@@ -11,6 +11,7 @@ class ViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 164.h,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadiusDirectional.only(
