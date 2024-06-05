@@ -13,16 +13,29 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
+  late PageController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController(initialPage: _currentIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: [
-        const FlashcardsView(),
-        const QuizView(),
-        const SettingsView(),
-      ][_currentIndex],
+      body: PageView(
+        controller: _controller,
+        onPageChanged: (value) => setState(() => _currentIndex = value),
+        children: [
+          const FlashcardsView(),
+          const QuizView(),
+          const SettingsView(),
+        ],
+      ),
       bottomNavigationBar: BottomNavBar(
-          onTap: (value) => setState(() => _currentIndex = value),
+          onTap: (value) => _controller.animateToPage(value,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn),
           currentIndex: _currentIndex),
     );
   }
