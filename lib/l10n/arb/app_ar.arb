@@ -4,5 +4,9 @@
      "darkTheme" : "الوضع الليلي",
     "language": "اللغة",
   "flashcards" : "بطاقات تعليمية",
-  "quizzes" : "اختبارات"
+  "quizzes" : "اختبارات",
+  "policies" : "سياسات الخصوصية",
+  "contactUs": "اتصل بنا",
+  "deleteAppData" : "حذف بيانات التطبيق"
+
 }

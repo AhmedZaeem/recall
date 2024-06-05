@@ -4,5 +4,8 @@
     "darkTheme": "Dark Theme",
     "language" : "Language",
     "flashcards" : "Flashcards",
-    "quizzes" : "Quizzes"
+    "quizzes" : "Quizzes",
+    "policies" : "Privacy policies",
+    "contactUs": "Contact us for feedback",
+    "deleteAppData" : "Clear app data"
 }

@@ -57,16 +57,17 @@ class LocalizationBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LocalizationCubit, int>(
-      builder: (BuildContext context, int state) {
+    return BlocBuilder<LocalizationCubit, Locale>(
+      builder: (BuildContext context, Locale state) {
         ScreenUtil.init(context);
         return MaterialApp(
           themeMode: theme,
           darkTheme: FlexThemeData.dark(scheme: FlexScheme.deepPurple),
           theme: FlexThemeData.light(scheme: FlexScheme.deepPurple),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          locale: AppLocalizations.supportedLocales[state],
+          supportedLocales:
+              context.read<LocalizationCubit>().supportedLocales(),
+          locale: state,
           home: const HomeView(),
         );
       },
