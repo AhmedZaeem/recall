@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recall/app/theme/cubit.dart';
+import 'package:recall/app/theme/theme_cubit.dart';
 import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
 import 'package:switcher_button/switcher_button.dart';

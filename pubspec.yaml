@@ -12,6 +12,7 @@ dependencies:
   bloc: ^8.1.4
   cool_dropdown: ^2.1.0
   switcher_button: ^0.0.4
+  get_storage: ^2.1.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
