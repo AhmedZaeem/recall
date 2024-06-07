@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recall/app/app.dart';
-import 'package:recall/flashcards_decks/presentation/widgets/add_deck_alert.dart';
+import 'package:recall/flashcards_decks/presentation/widgets/deck_details_alert.dart';
 import 'package:recall/l10n/l10n.dart';
 
 import 'flashcards_deck_list.dart';
@@ -14,7 +14,7 @@ class FlashcardsDeckView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () => AddDeckAlert(context),
+        onPressed: () => deckDetailsAlert(context),
         child: Icon(Icons.add),
       ),
       body: SingleChildScrollView(

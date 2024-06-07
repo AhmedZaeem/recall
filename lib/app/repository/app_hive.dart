@@ -12,6 +12,10 @@ class AppHive {
     await Hive.openBox(_boxName);
   }
 
+  static list() {
+    return Hive.box(_boxName).values.toList();
+  }
+
   static Future<void> save(int key, dynamic value) async {
     await Hive.box(_boxName).put(key, value);
   }

@@ -6,6 +6,8 @@ import 'package:recall/home/home.dart';
 import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
 
+import '../../../flashcards_decks/repository/flashcard_deck_cubit.dart';
+
 class ScreenUtilInitClass extends StatelessWidget {
   const ScreenUtilInitClass({super.key});
 
@@ -31,6 +33,9 @@ class App extends StatelessWidget {
         ),
         BlocProvider<LocalizationCubit>(
           create: (BuildContext context) => LocalizationCubit(),
+        ),
+        BlocProvider<FlashcardDeckCubit>(
+          create: (BuildContext context) => FlashcardDeckCubit(),
         ),
       ],
       child: const AppBuilder(),

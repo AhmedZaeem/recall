@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recall/app/presentation/widgets/delete_confirmation.dart';
+import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
+import 'package:recall/flashcards_decks/presentation/widgets/deck_details_alert.dart';
 import 'package:recall/l10n/l10n.dart';
 
 class FlashcardsListTile extends StatelessWidget {
-  const FlashcardsListTile({super.key});
-
+  const FlashcardsListTile({super.key, required this.deck});
+  final FlashcardsDeckModel deck;
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = context.l10n;
@@ -40,21 +43,14 @@ class FlashcardsListTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 8.h),
-                  //47
                   Text(
-                    List.generate(45, (index) => '_')
-                        .toString()
-                        .replaceAll(', ', ''),
+                    deck.deckName,
                     maxLines: 1,
                     overflow: TextOverflow.fade,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SizedBox(height: 8.h),
-                  //57
-                  Text(
-                      List.generate(55, (index) => '_')
-                          .toString()
-                          .replaceAll(', ', ''),
+                  Text(deck.deckDescription,
                       style: Theme.of(context).textTheme.bodySmall),
                 ],
               ),
@@ -68,16 +64,18 @@ class FlashcardsListTile extends StatelessWidget {
             itemBuilder: (BuildContext context) {
               return <PopupMenuEntry>[
                 PopupMenuItem(
-                  child: Text(
-                    l10n.edit,
-                    style: Theme.of(context).textTheme.labelSmall,
-                  ),
-                ),
+                    child: Text(
+                      l10n.edit,
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    onTap: () => deckDetailsAlert(context, deckToEdit: deck)),
                 PopupMenuItem(
                   child: Text(
                     l10n.delete,
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
+                  onTap: () =>
+                      deleteConfirmation(context, deck.deckId, isDeck: true),
                 ),
               ];
             },

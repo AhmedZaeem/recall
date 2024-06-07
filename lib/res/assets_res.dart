@@ -8,5 +8,6 @@ class AssetsRes {
 
   static const String PLUGIN_NAME = 'recall';
   static const String PLUGIN_VERSION = '1.0.0+1';
+  static const String AREYOUSURE = 'assets/images/areYouSure.webp';
   static const String FLASHCARD = 'assets/images/flashcard.webp';
 }
