@@ -32,7 +32,7 @@ class FlashcardsListTile extends StatelessWidget {
                 height: 64.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25.r),
-                  color: Colors.blue,
+                  color: Theme.of(context).primaryColorDark,
                 ),
               ),
               SizedBox(width: 16.w),
@@ -50,9 +50,9 @@ class FlashcardsListTile extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SizedBox(height: 8.h),
-                  //60
+                  //57
                   Text(
-                      List.generate(58, (index) => '_')
+                      List.generate(55, (index) => '_')
                           .toString()
                           .replaceAll(', ', ''),
                       style: Theme.of(context).textTheme.bodySmall),

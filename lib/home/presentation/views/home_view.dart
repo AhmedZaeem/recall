@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recall/flashcards/flashcards.dart';
 import 'package:recall/home/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:recall/quizzes/quiz.dart';
 import 'package:recall/settings/settings.dart';
+
+import '../../../flashcards_decks/presentation/views/flashcards_decks_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -27,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
         controller: _controller,
         onPageChanged: (value) => setState(() => _currentIndex = value),
         children: [
-          const FlashcardsView(),
+          const FlashcardsDeckView(),
           const QuizView(),
           const SettingsView(),
         ],
