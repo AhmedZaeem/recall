@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
 
-import '../../../flashcards_decks/repository/deck_model_view.dart';
+import '../../../flashcards_decks/repository/deck_alerts.dart';
 import '../../../l10n/l10n.dart';
 
 deleteConfirmation(BuildContext context, int id, {bool isDeck = false}) async {
@@ -20,7 +20,7 @@ deleteConfirmation(BuildContext context, int id, {bool isDeck = false}) async {
           ? Colors.white
           : Colors.black,
       customAsset: 'assets/images/areYouSure.webp',
-      text: l10n.deleteConfirmation,
+      text: l10n.delete,
       cancelBtnText: l10n.cancel,
       confirmBtnText: l10n.delete,
       confirmBtnColor: Theme.of(context).primaryColorDark,

@@ -20,6 +20,8 @@
     "yay" : "Yay! Your deck has been saved!",
     "edited": "Deck has been edited successfully!",
     "problem": "Seems like there was an issue",
-    "deleteConfirmation": "Are you sure you want to delete this deck?",
-    "deckDeleted": "Deck has been deleted"
+    "deckDeleteConfirmation": "Are you sure you want to delete this deck?",
+    "deckDeleted": "Deck has been deleted",
+    "oops": "Oops",
+    "update" : "Update"
 }

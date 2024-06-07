@@ -1,95 +1,137 @@
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:recall/app/presentation/widgets/quick_alert_dials.dart';
 import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
-import 'package:recall/flashcards_decks/repository/deck_model_view.dart';
+import 'package:recall/flashcards_decks/repository/deck_alerts.dart';
 import 'package:recall/l10n/l10n.dart';
 
-deckDetailsAlert(BuildContext context,
-    {FlashcardsDeckModel? deckToEdit}) async {
-  TextEditingController deckTitleController =
-      TextEditingController(text: deckToEdit?.deckName ?? '');
-  TextEditingController deckDescriptionController =
-      TextEditingController(text: deckToEdit?.deckDescription ?? '');
-  AppLocalizations l10n = context.l10n;
-  await QuickAlert.show(
-    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    context: context,
-    type: QuickAlertType.custom,
-    barrierDismissible: true,
-    confirmBtnText: l10n.save,
-    confirmBtnColor: Theme.of(context).primaryColorDark,
-    cancelBtnText: l10n.cancel,
-    showCancelBtn: true,
-    onCancelBtnTap: () => Navigator.pop(context),
-    widget: Column(
-      children: <Widget>[
-        SizedBox(height: 16),
-        Text(deckToEdit == null ? l10n.addDeck : l10n.editDeck,
-            style: Theme.of(context).textTheme.titleLarge),
-        SizedBox(height: 16),
-        TextFormField(
-          maxLength: 40,
-          controller: deckTitleController,
-          style: Theme.of(context).textTheme.titleSmall,
-          decoration: InputDecoration(
-            hintText: l10n.deckName,
-            counter: const SizedBox.shrink(),
-          ),
-          textInputAction: TextInputAction.next,
-        ),
-        SizedBox(height: 16),
-        TextFormField(
-          controller: deckDescriptionController,
-          maxLength: 50,
-          maxLines: 2,
-          style: Theme.of(context).textTheme.labelSmall,
-          decoration: InputDecoration(
-            hintText: l10n.deckDescription,
-            counter: const SizedBox.shrink(),
-          ),
-          textInputAction: TextInputAction.next,
-        ),
-      ],
-    ),
-    onConfirmBtnTap: () async {
-      Navigator.pop(context);
-      QuickAlert.show(context: context, type: QuickAlertType.loading);
-      if (deckToEdit != null && deckTitleController.text.isNotEmpty) {
-        await DeckModelView.editDeck(
-          key: deckToEdit.deckId,
-          deckTitle: deckTitleController.text,
-          deckDescription: deckDescriptionController.text,
-          context: context,
-        );
+class DeckAlerts {
+  static addDeck(BuildContext context) async {
+    AppLocalizations l10n = context.l10n;
+    TextEditingController deckTitleController = TextEditingController();
+    TextEditingController deckDescriptionController = TextEditingController();
+    await QuickAlertDials.showDetailsAlert(context,
+        confirmBtnText: l10n.save,
+        cancelBtnText: l10n.cancel,
+        title: l10n.addDeck,
+        firstHint: l10n.deckName,
+        secondHint: l10n.deckDescription,
+        firstController: deckTitleController,
+        secondController: deckDescriptionController,
+        onConfirmBtnTap: () => _confirmDeck(context,
+            deckTitle: deckTitleController.text,
+            deckDescription: deckDescriptionController.text,
+            l10n: l10n));
+  }
+
+  static _confirmDeck(BuildContext context,
+      {required String deckTitle,
+      required String deckDescription,
+      required AppLocalizations l10n}) async {
+    {
+      QuickAlertDials.showLoadingAlert(context);
+      await DeckModelView.addDeck(
+        deckTitle: deckTitle,
+        deckDescription: deckDescription,
+        context: context,
+      ).then(
+        (value) async {
+          Navigator.pop(context);
+          if (value != 'error' && deckTitle.isNotEmpty) {
+            await QuickAlert.show(
+              context: context,
+              type: QuickAlertType.success,
+              text: l10n.yay,
+            );
+          } else {
+            QuickAlertDials.showErrorAlert(context,
+                text: l10n.problem, title: l10n.oops);
+          }
+        },
+      );
+    }
+  }
+
+  static showEditDeckAlert(BuildContext context,
+      {required FlashcardsDeckModel deck}) {
+    AppLocalizations l10n = context.l10n;
+    TextEditingController deckTitleController =
+        TextEditingController(text: deck.deckName);
+    TextEditingController deckDescriptionController =
+        TextEditingController(text: deck.deckDescription);
+    QuickAlertDials.showDetailsAlert(context,
+        confirmBtnText: l10n.update,
+        cancelBtnText: l10n.cancel,
+        title: l10n.editDeck,
+        firstHint: l10n.deckName,
+        secondHint: l10n.deckName,
+        firstController: deckTitleController,
+        secondController: deckDescriptionController,
+        onConfirmBtnTap: () => _updateDeck(context,
+            deck: deck,
+            deckTitle: deckTitleController.text,
+            deckDescription: deckDescriptionController.text,
+            l10n: l10n));
+  }
+
+  static _updateDeck(BuildContext context,
+      {required FlashcardsDeckModel deck,
+      required String deckTitle,
+      required String deckDescription,
+      required AppLocalizations l10n}) async {
+    deck.deckName = deckTitle;
+    deck.deckDescription = deckDescription;
+    QuickAlertDials.showLoadingAlert(context);
+    await DeckModelView.editDeck(
+      deck: deck,
+      context: context,
+    ).then(
+      (value) {
         Navigator.pop(context);
-        await QuickAlert.show(
-          context: context,
-          type: QuickAlertType.success,
-          text: l10n.edited,
-        );
-        return;
-      } else if (deckTitleController.text.isNotEmpty) {
-        await DeckModelView.addDeck(
-          deckTitle: deckTitleController.text,
-          deckDescription: deckDescriptionController.text,
-          context: context,
-        );
+        if (value == 'error' || deckTitle.isEmpty) {
+          QuickAlertDials.showErrorAlert(context,
+              text: l10n.problem, title: l10n.oops);
+        } else {
+          QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: l10n.edited,
+          );
+        }
+      },
+    );
+  }
+
+  static showDeleteAlert(BuildContext context, int deckKey) async {
+    AppLocalizations l10n = context.l10n;
+    await QuickAlertDials.showDeleteDial(
+      context,
+      text: l10n.deckDeleteConfirmation,
+      confirmBtnText: l10n.delete,
+      onConfirm: () => _deleteDeck(context, deckKey),
+    );
+  }
+
+  static _deleteDeck(BuildContext context, int key) async {
+    AppLocalizations l10n = context.l10n;
+    QuickAlertDials.showLoadingAlert(context);
+    await DeckModelView.deleteDeck(
+      key: key,
+      context: context,
+    ).then(
+      (value) {
         Navigator.pop(context);
-        await QuickAlert.show(
-          context: context,
-          type: QuickAlertType.success,
-          text: l10n.yay,
-        );
-        return;
-      } else {
-        Navigator.pop(context);
-        await QuickAlert.show(
-          context: context,
-          type: QuickAlertType.error,
-          text: l10n.problem,
-        );
-        return deckDetailsAlert(context);
-      }
-    },
-  );
+        if (value == 'error') {
+          QuickAlertDials.showErrorAlert(context,
+              text: l10n.problem, title: l10n.oops);
+        } else {
+          QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: l10n.deckDeleted,
+          );
+        }
+      },
+    );
+  }
 }

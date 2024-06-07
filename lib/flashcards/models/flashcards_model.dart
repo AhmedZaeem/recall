@@ -10,12 +10,10 @@ class FlashcardsModel extends HiveObject {
   String definition;
   @HiveField(2)
   String term;
-  @HiveField(3)
-  int deckId;
 
-  FlashcardsModel(
-      {required this.id,
-      required this.definition,
-      required this.term,
-      required this.deckId});
+  FlashcardsModel({
+    required this.id,
+    required this.definition,
+    required this.term,
+  });
 }

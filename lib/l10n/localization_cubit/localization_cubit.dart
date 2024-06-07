@@ -15,7 +15,7 @@ class LocalizationCubit extends Cubit<Locale> {
     if (savedLocale != null) {
       emit(supportedLocales()[savedLocale]);
     } else {
-      emit(supportedLocales()[0]);
+      emit(supportedLocales()[1]);
     }
   }
 

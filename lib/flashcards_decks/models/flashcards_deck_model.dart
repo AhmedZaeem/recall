@@ -19,5 +19,6 @@ class FlashcardsDeckModel extends HiveObject {
       {required this.deckId,
       required this.deckName,
       required this.deckDescription,
-      this.flashcards = const []});
+      List<FlashcardsModel>? flashcards})
+      : this.flashcards = flashcards ?? [];
 }

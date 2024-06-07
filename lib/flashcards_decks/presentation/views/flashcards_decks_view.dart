@@ -14,7 +14,7 @@ class FlashcardsDeckView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () => deckDetailsAlert(context),
+        onPressed: () => DeckAlerts.addDeck(context),
         child: Icon(Icons.add),
       ),
       body: SingleChildScrollView(
