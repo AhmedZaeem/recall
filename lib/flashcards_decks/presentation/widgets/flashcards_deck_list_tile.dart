@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recall/app/presentation/widgets/delete_confirmation.dart';
 import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
-import 'package:recall/flashcards_decks/presentation/widgets/deck_details_alert.dart';
+import 'package:recall/flashcards_decks/presentation/widgets/deck_alerts.dart';
 import 'package:recall/l10n/l10n.dart';
 
 import '../../../flashcards/flashcards.dart';

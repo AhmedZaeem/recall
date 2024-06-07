@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
 
-import '../../../flashcards_decks/repository/deck_alerts.dart';
+import '../../../flashcards_decks/repository/deck_model_view.dart';
 import '../../../l10n/l10n.dart';
 
 deleteConfirmation(BuildContext context, int id, {bool isDeck = false}) async {

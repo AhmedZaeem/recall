@@ -83,6 +83,9 @@ class QuickAlertDials {
       context: context,
       type: QuickAlertType.warning,
       text: text,
+      textColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.white
+          : Colors.black,
       titleColor: Colors.red,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       showCancelBtn: true,

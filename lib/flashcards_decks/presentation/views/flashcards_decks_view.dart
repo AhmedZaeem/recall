@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recall/app/app.dart';
-import 'package:recall/flashcards_decks/presentation/widgets/deck_details_alert.dart';
+import 'package:recall/flashcards_decks/presentation/widgets/deck_alerts.dart';
 import 'package:recall/l10n/l10n.dart';
 
 import 'flashcards_deck_list.dart';

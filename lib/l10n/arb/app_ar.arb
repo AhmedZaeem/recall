@@ -23,6 +23,14 @@
   "deckDeleteConfirmation": "هل أنت متأكد من أنك تريد حذف هذه المجموعة؟",
   "deckDeleted": "تم حذف المجموعة بنجاح",
   "oops": "عذراً",
-  "update" : "تحديث"
-
+  "update" : "تحديث",
+  "addCard": "إضافة بطاقة تعليمية",
+  "term": "المصطلح",
+  "definition" : "التعريف",
+  "yayFlashcard": "مرحى! لقد قمت بإضافة بطاقة تعليمية جديدة",
+  "editedFlashcard": "تم تعديل البطاقة التعليمية بنجاح",
+  "flashcardDeleteConfirmation": "هل أنت متأكد من أنك تريد حذف هذه البطاقة التعليمية؟",
+  "flashcardDeleted": "تم حذف البطاقة التعليمية بنجاح",
+  "editFlashcard": "تعديل البطاقة التعليمية",
+  "deleteFlashcard": "حذف البطاقة التعليمية"
 }

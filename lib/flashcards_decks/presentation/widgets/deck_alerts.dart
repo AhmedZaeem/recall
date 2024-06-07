@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:recall/app/presentation/widgets/quick_alert_dials.dart';
 import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
-import 'package:recall/flashcards_decks/repository/deck_alerts.dart';
+import 'package:recall/flashcards_decks/repository/deck_model_view.dart';
 import 'package:recall/l10n/l10n.dart';
 
 class DeckAlerts {
@@ -30,25 +30,28 @@ class DeckAlerts {
       required AppLocalizations l10n}) async {
     {
       QuickAlertDials.showLoadingAlert(context);
-      await DeckModelView.addDeck(
-        deckTitle: deckTitle,
-        deckDescription: deckDescription,
-        context: context,
-      ).then(
-        (value) async {
-          Navigator.pop(context);
-          if (value != 'error' && deckTitle.isNotEmpty) {
-            await QuickAlert.show(
-              context: context,
-              type: QuickAlertType.success,
-              text: l10n.yay,
-            );
-          } else {
-            QuickAlertDials.showErrorAlert(context,
-                text: l10n.problem, title: l10n.oops);
-          }
-        },
-      );
+      if (deckTitle.isNotEmpty) {
+        await DeckModelView.addDeck(
+          deckTitle: deckTitle,
+          deckDescription: deckDescription,
+          context: context,
+        ).then(
+          (value) async {
+            Navigator.pop(context);
+            if (value != 'error') {
+              await QuickAlert.show(
+                context: context,
+                type: QuickAlertType.success,
+                text: l10n.yay,
+              );
+            }
+          },
+        );
+      } else {
+        Navigator.pop(context);
+        QuickAlertDials.showErrorAlert(context,
+            text: l10n.problem, title: l10n.oops);
+      }
     }
   }
 

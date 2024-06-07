@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recall/flashcards/presentation/widgets/add_flashcard_item.dart';
+import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
+import 'package:recall/flashcards_decks/repository/flashcard_deck_cubit.dart';
 import 'package:recall/l10n/l10n.dart';
+import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
 
 import '../widgets/flashcard_item.dart';
 
 class FlashcardsView extends StatelessWidget {
-  const FlashcardsView({super.key});
-
+  const FlashcardsView({super.key, required this.deck});
+  final FlashcardsDeckModel deck;
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = context.l10n;
+    context.watch<FlashcardDeckCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Flashcards'),
@@ -24,9 +28,11 @@ class FlashcardsView extends StatelessWidget {
             mainAxisSpacing: 8.h,
             childAspectRatio: 1.5,
           ),
-          itemCount: 6,
+          itemCount: deck.flashcards.length + 1,
           itemBuilder: (BuildContext context, int index) {
-            return index == 5 ? AddFlashcardItem() : FlashcardItem();
+            return index == deck.flashcards.length
+                ? AddFlashcardItem(deck: deck)
+                : FlashcardItem(flashcard: deck.flashcards[index], deck: deck);
           },
         ),
       ),

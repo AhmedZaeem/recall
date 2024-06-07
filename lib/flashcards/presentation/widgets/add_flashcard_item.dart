@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recall/flashcards/presentation/widgets/flashcard_details_alert.dart';
+import 'package:recall/flashcards/presentation/widgets/flashcard_alerts.dart';
 
 import '../../../flashcards_decks/models/flashcards_deck_model.dart';
 
@@ -10,7 +10,7 @@ class AddFlashcardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => flashcardDetailsAlert(context, deck: deck),
+      onTap: () => FlashcardAlerts.showAddFlashcardAlert(context, deck: deck),
       child: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
