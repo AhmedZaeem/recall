@@ -18,9 +18,9 @@ class FlashcardFlipWidget extends StatelessWidget {
       animationDuration: const Duration(milliseconds: 300),
       controller: controller,
       onTapFlipping: true,
-      frontWidget: CardWidget(text: currentFlashcard.definition),
+      frontWidget: CardWidget(text: currentFlashcard.term),
       backWidget: CardWidget(
-        text: currentFlashcard.term,
+        text: currentFlashcard.definition,
         color: Colors.red[700],
       ),
       rotateSide: RotateSide.left,

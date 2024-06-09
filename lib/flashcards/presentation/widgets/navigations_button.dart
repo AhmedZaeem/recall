@@ -6,14 +6,15 @@ class NavigationButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.icon,
+    this.enabled = true,
   });
-
+  final bool enabled;
   final Function()? onPressed;
   final IconData icon;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: enabled ? onPressed : null,
       style: ButtonStyle(
         elevation: WidgetStatePropertyAll<double>(0),
         backgroundColor: WidgetStatePropertyAll<Color>(Colors.transparent),
@@ -21,9 +22,11 @@ class NavigationButton extends StatelessWidget {
       child: Icon(
         icon,
         size: 32.w,
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Colors.white
-            : Colors.black,
+        color: enabled
+            ? (Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black)
+            : Colors.grey,
       ),
     );
   }

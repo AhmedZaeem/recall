@@ -11,6 +11,8 @@ class QuickAlertDials {
     required String title,
     required String firstHint,
     required String secondHint,
+    int firstEditTextMaxChars = 40,
+    int secondEditTextMaxChars = 50,
     Function()? onConfirmBtnTap,
   }) async {
     await QuickAlert.show(
@@ -29,7 +31,7 @@ class QuickAlertDials {
           Text(title, style: Theme.of(context).textTheme.titleLarge),
           SizedBox(height: 16),
           TextFormField(
-            maxLength: 40,
+            maxLength: firstEditTextMaxChars,
             controller: firstController,
             style: Theme.of(context).textTheme.titleSmall,
             decoration: InputDecoration(
@@ -41,7 +43,7 @@ class QuickAlertDials {
           SizedBox(height: 16),
           TextFormField(
             controller: secondController,
-            maxLength: 50,
+            maxLength: secondEditTextMaxChars,
             maxLines: 2,
             style: Theme.of(context).textTheme.labelSmall,
             decoration: InputDecoration(

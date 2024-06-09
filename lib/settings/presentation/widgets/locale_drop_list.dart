@@ -15,6 +15,7 @@ class LocaleDropList extends StatelessWidget {
 
     var items = [
       CoolDropdownItem(label: 'English', value: 'en'),
+      CoolDropdownItem(label: 'French', value: 'fr'),
       CoolDropdownItem(label: 'العربية', value: 'ar'),
     ];
     var defaultItem = items.firstWhere(

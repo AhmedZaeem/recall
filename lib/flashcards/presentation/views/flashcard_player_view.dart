@@ -30,6 +30,12 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -54,11 +60,14 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   NavigationButton(
-                    icon: Icons.skip_previous,
-                    onPressed: () => pageController.previousPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn),
-                  ),
+                      icon: Icons.skip_previous,
+                      enabled: index != 0,
+                      onPressed: () {
+                        pageController.previousPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn,
+                        );
+                      }),
                   NavigationButton(
                     onPressed: () async {
                       await controller.flipcard();
@@ -66,6 +75,7 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
                     icon: Icons.play_arrow,
                   ),
                   NavigationButton(
+                    enabled: index != widget.deck.flashcards.length - 1,
                     onPressed: () {
                       pageController.nextPage(
                           duration: const Duration(milliseconds: 500),

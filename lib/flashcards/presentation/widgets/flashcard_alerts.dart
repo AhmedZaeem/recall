@@ -17,6 +17,8 @@ class FlashcardAlerts {
     await QuickAlertDials.showDetailsAlert(context,
         confirmBtnText: l10n.save,
         cancelBtnText: l10n.cancel,
+        secondEditTextMaxChars: 700,
+        firstEditTextMaxChars: 120,
         title: l10n.addCard,
         firstHint: l10n.term,
         secondHint: l10n.definition,
