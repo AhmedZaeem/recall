@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recall/flashcards/presentation/widgets/add_flashcard_item.dart';
 import 'package:recall/flashcards_decks/models/flashcards_deck_model.dart';
 import 'package:recall/flashcards_decks/repository/flashcard_deck_cubit.dart';
-import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
 
 import '../widgets/flashcard_item.dart';
@@ -13,7 +12,6 @@ class FlashcardsView extends StatelessWidget {
   final FlashcardsDeckModel deck;
   @override
   Widget build(BuildContext context) {
-    AppLocalizations l10n = context.l10n;
     context.watch<FlashcardDeckCubit>();
     return Scaffold(
       appBar: AppBar(

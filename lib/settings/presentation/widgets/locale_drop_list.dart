@@ -2,7 +2,6 @@ import 'package:cool_dropdown/cool_dropdown.dart';
 import 'package:cool_dropdown/models/cool_dropdown_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
 
 class LocaleDropList extends StatelessWidget {
@@ -11,7 +10,6 @@ class LocaleDropList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var localizationCubit = context.read<LocalizationCubit>();
-    final l10n = context.l10n;
 
     var items = [
       CoolDropdownItem(label: 'English', value: 'en'),

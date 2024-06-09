@@ -19,7 +19,7 @@ class DeckModelView {
       );
       await AppHive.save(key, deck);
       context.read<FlashcardDeckCubit>().addDeck(deck);
-    } on Exception catch (e) {
+    } on Exception {
       return Future.error('error');
     }
   }
@@ -29,7 +29,7 @@ class DeckModelView {
     try {
       await AppHive.delete(key);
       context.read<FlashcardDeckCubit>().deleteDeck(key);
-    } on Exception catch (e) {
+    } on Exception {
       return Future.error('error');
     }
   }
@@ -40,7 +40,7 @@ class DeckModelView {
     try {
       await AppHive.save(deck.deckId, deck);
       context.read<FlashcardDeckCubit>().editDeck(deck);
-    } on Exception catch (e) {
+    } on Exception {
       return Future.error('error');
     }
   }

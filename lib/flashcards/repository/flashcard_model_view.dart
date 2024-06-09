@@ -23,11 +23,8 @@ class FlashcardModelView {
       {required FlashcardsDeckModel deck,
       required FlashcardsModel flashcard}) async {
     try {
-      var oldFlashcard =
-          deck.flashcards.where((element) => element.id == flashcard.id).first;
-      oldFlashcard = flashcard;
       await DeckModelView.editDeck(deck: deck, context: context);
-    } on Exception catch (e) {
+    } on Exception {
       return Future.error('error');
     }
   }
@@ -38,7 +35,7 @@ class FlashcardModelView {
     try {
       deck.flashcards.removeWhere((element) => element.id == flashcard.id);
       await DeckModelView.editDeck(deck: deck, context: context);
-    } on Exception catch (e) {
+    } on Exception {
       return Future.error('error');
     }
   }
