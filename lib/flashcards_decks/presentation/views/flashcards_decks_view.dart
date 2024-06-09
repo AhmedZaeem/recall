@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recall/app/app.dart';
-import 'package:recall/flashcards_decks/presentation/widgets/deck_alerts.dart';
 import 'package:recall/l10n/l10n.dart';
 
 import 'flashcards_deck_list.dart';
@@ -11,19 +10,12 @@ class FlashcardsDeckView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () => DeckAlerts.addDeck(context),
-        child: Icon(Icons.add),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ViewHeader(title: l10n.flashcards),
-            FlashcardsDeckList(),
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ViewHeader(title: l10n.flashcards),
+          FlashcardsDeckList(),
+        ],
       ),
     );
   }

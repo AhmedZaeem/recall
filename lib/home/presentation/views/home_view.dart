@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:recall/flashcards_decks/presentation/widgets/add_deck_floating_action_button.dart';
 import 'package:recall/home/presentation/widgets/bottom_navigation_bar.dart';
+import 'package:recall/quizzes/presentation/widgets/add_quiz_floating_action_button.dart';
 import 'package:recall/quizzes/quiz.dart';
 import 'package:recall/settings/settings.dart';
 
@@ -24,6 +26,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: _currentIndex == 0
+          ? AddDeckFloatingActionButton()
+          : _currentIndex == 1
+              ? AddQuizFloatingActionButton()
+              : null,
       body: PageView(
         controller: _controller,
         onPageChanged: (value) => setState(() => _currentIndex = value),
