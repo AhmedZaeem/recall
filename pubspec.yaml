@@ -40,4 +40,5 @@ flutter:
     - assets/images/
     - assets/images/areYouSure.webp
     - assets/images/delete.webp
+    - assets/images/error.webp
     - assets/images/quiz.webp

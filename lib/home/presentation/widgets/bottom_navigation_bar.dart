@@ -5,6 +5,7 @@ import 'package:recall/l10n/l10n.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar(
       {required this.currentIndex, required this.onTap, super.key});
+
   final int currentIndex;
   final Function(int) onTap;
 

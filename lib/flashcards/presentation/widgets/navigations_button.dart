@@ -8,9 +8,11 @@ class NavigationButton extends StatelessWidget {
     required this.icon,
     this.enabled = true,
   });
+
   final bool enabled;
   final Function()? onPressed;
   final IconData icon;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

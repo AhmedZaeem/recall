@@ -1,7 +1,16 @@
-class QuestionModel {
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'question_model.g.dart';
+
+@HiveType(typeId: 3)
+class QuestionModel extends HiveObject {
+  @HiveField(0)
   int id;
+  @HiveField(1)
   String question;
+  @HiveField(3)
   int answerIndex;
+  @HiveField(4)
   List<String> options;
 
   QuestionModel(

@@ -7,6 +7,7 @@ class FlashcardDeckCubit extends Cubit<List<FlashcardsDeckModel>> {
   FlashcardDeckCubit() : super([]) {
     readData();
   }
+
   readData() {
     List data = AppHive.list();
     List<FlashcardsDeckModel> decks = [];

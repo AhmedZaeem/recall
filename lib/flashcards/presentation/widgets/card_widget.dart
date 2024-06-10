@@ -10,6 +10,7 @@ class CardWidget extends StatelessWidget {
 
   final String text;
   final Color? color;
+
   @override
   Widget build(BuildContext context) {
     return Center(

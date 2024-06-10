@@ -9,7 +9,9 @@ import '../../../flashcards/flashcards.dart';
 
 class FlashcardsListTile extends StatelessWidget {
   const FlashcardsListTile({super.key, required this.deck});
+
   final FlashcardsDeckModel deck;
+
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = context.l10n;

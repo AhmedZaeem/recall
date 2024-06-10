@@ -6,7 +6,9 @@ import '../../../flashcards_decks/models/flashcards_deck_model.dart';
 
 class AddFlashcardItem extends StatelessWidget {
   const AddFlashcardItem({super.key, required this.deck});
+
   final FlashcardsDeckModel deck;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

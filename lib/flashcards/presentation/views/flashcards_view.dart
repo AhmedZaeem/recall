@@ -9,7 +9,9 @@ import '../widgets/flashcard_item.dart';
 
 class FlashcardsView extends StatelessWidget {
   const FlashcardsView({super.key, required this.deck});
+
   final FlashcardsDeckModel deck;
+
   @override
   Widget build(BuildContext context) {
     context.watch<FlashcardDeckCubit>();

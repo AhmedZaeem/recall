@@ -13,8 +13,10 @@ class FlashcardItem extends StatelessWidget {
     required this.flashcard,
     required this.deck,
   });
+
   final FlashcardsModel flashcard;
   final FlashcardsDeckModel deck;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations l10n = context.l10n;

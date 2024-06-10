@@ -10,6 +10,7 @@ class LocalizationCubit extends Cubit<Locale> {
   LocalizationCubit() : super(Locale('en')) {
     initLocale();
   }
+
   initLocale() {
     int? savedLocale = SettingsCache().cache.read('locale');
     if (savedLocale != null) {

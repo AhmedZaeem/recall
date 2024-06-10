@@ -10,8 +10,10 @@ class FlashcardFlipWidget extends StatelessWidget {
     required this.controller,
     required this.currentFlashcard,
   });
+
   final FlipCardController controller;
   final FlashcardsModel currentFlashcard;
+
   @override
   Widget build(BuildContext context) {
     return FlipCard(

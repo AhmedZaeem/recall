@@ -13,6 +13,7 @@ class FlashcardPlayerView extends StatefulWidget {
     required this.flashcard,
     required this.deck,
   });
+
   final FlashcardsModel flashcard;
   final FlashcardsDeckModel deck;
 
@@ -22,6 +23,7 @@ class FlashcardPlayerView extends StatefulWidget {
 
 class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
   late PageController pageController;
+
   @override
   void initState() {
     super.initState();

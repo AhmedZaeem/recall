@@ -58,6 +58,7 @@ class AppBuilder extends StatelessWidget {
 
 class LocalizationBuilder extends StatelessWidget {
   const LocalizationBuilder({required this.theme, super.key});
+
   final ThemeMode theme;
 
   @override
