@@ -13,10 +13,11 @@ class QuizModelView {
       required int deckId}) async {
     int id = await AppHive.list(isQuiz: true).length;
     QuizModel quiz = QuizModel(
-        title: title,
-        maxNumOfQuestions: numOfQuestions,
-        id: id,
-        deckId: deckId);
+      title: title,
+      maxNumOfQuestions: numOfQuestions,
+      id: id,
+      deckId: deckId,
+    );
     if (context.mounted) {
       await context.read<QuizCubit>().createQuiz(quiz);
       Navigator.pop(context);

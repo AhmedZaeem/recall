@@ -13,6 +13,11 @@ class QuestionModel extends HiveObject {
   @HiveField(4)
   List<String> options;
 
+  @override
+  String toString() {
+    return 'QuestionModel{id: $id, question: $question, answerIndex: $answerIndex, options: $options}';
+  }
+
   QuestionModel(
       {required this.id,
       required this.question,

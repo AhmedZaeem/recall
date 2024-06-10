@@ -17,6 +17,12 @@ class QuizModel extends HiveObject {
   int maxScore = 0;
   @HiveField(5)
   int maxNumOfQuestions;
+
+  @override
+  String toString() {
+    return 'QuizModel{id: $id, deckId: $deckId, title: $title, questions: $questions, maxScore: $maxScore, maxNumOfQuestions: $maxNumOfQuestions}';
+  }
+
   QuizModel(
       {required this.id,
       required this.title,

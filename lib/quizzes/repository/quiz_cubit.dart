@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:recall/app/repository/app_hive.dart';
+import 'package:recall/quizzes/models/question_model.dart';
 import 'package:recall/quizzes/models/quiz_model.dart';
 
 class QuizCubit extends Cubit<List<QuizModel>> {
@@ -31,11 +32,28 @@ class QuizCubit extends Cubit<List<QuizModel>> {
     }
   }
 
-  Future editQuiz(QuizModel quiz, int index) async {
+  Future addQuestion(QuestionModel question, int index) async {
     try {
-      await AppHive.save(index, quiz, isQuiz: true);
       List<QuizModel> quizzes = state;
-      quizzes[index] = quiz;
+      quizzes[index].questions == null
+          ? [question]
+          : quizzes[index].questions!.add(question);
+      emit(quizzes);
+    } on Exception {
+      return Future.error('error');
+    }
+  }
+
+  Future deleteQuizFromDeck(int deckId) async {
+    try {
+      List<QuizModel> quizzes = state;
+      for (int i = 0; i < quizzes.length; i++) {
+        if (quizzes[i].deckId == deckId) {
+          await AppHive.delete(i, isQuiz: true);
+          quizzes.removeAt(i);
+          i--;
+        }
+      }
       emit(quizzes);
     } on Exception {
       return Future.error('error');

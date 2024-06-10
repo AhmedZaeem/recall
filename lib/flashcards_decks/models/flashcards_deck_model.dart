@@ -15,6 +15,11 @@ class FlashcardsDeckModel extends HiveObject {
   @HiveField(3)
   List<FlashcardsModel> flashcards;
 
+  @override
+  String toString() {
+    return 'FlashcardsDeckModel{deckId: $deckId, deckName: $deckName, deckDescription: $deckDescription, flashcards: $flashcards}';
+  }
+
   FlashcardsDeckModel(
       {required this.deckId,
       required this.deckName,

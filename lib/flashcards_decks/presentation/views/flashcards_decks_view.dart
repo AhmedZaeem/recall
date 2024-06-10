@@ -4,6 +4,7 @@ import 'package:recall/app/app.dart';
 import 'package:recall/app/presentation/widgets/no_data.dart';
 import 'package:recall/flashcards_decks/repository/flashcard_deck_cubit.dart';
 import 'package:recall/l10n/l10n.dart';
+import 'package:recall/quizzes/repository/quiz_cubit.dart';
 
 import 'flashcards_deck_list.dart';
 
@@ -14,6 +15,7 @@ class FlashcardsDeckView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     var decks = context.watch<FlashcardDeckCubit>().state;
+    context.watch<QuizCubit>();
     return SingleChildScrollView(
       child: Column(
         children: [

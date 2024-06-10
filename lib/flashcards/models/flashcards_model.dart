@@ -11,6 +11,11 @@ class FlashcardsModel extends HiveObject {
   @HiveField(2)
   String term;
 
+  @override
+  String toString() {
+    return 'FlashcardsModel{id: $id, definition: $definition, term: $term}';
+  }
+
   FlashcardsModel({
     required this.id,
     required this.definition,

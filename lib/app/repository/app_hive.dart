@@ -40,7 +40,7 @@ class AppHive {
   }
 
   static Future<void> delete(int key, {bool isQuiz = false}) async {
-    await Hive.box(_boxName).delete(key);
+    await Hive.box(isQuiz ? _quizBoxName : _boxName).delete(key);
   }
 
   static Future<void> clear({bool isQuiz = false}) async {
