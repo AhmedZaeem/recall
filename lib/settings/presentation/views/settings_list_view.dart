@@ -3,8 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recall/app/theme/theme_cubit.dart';
 import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
+import 'package:recall/settings/repository/send_feedback.dart';
 import 'package:switcher_button/switcher_button.dart';
 
+import '../../repository/clear_app_data.dart';
+import '../../repository/redirect_to_privacy_policy.dart';
 import '../widgets/locale_drop_list.dart';
 import '../widgets/settings_divider.dart';
 
@@ -45,16 +48,19 @@ class _SettingsListViewState extends State<SettingsListView> {
         ListTile(
           title: Text(l10n.policies),
           leading: Icon(Icons.policy),
+          onTap: () => RedirectToPrivacyPolicy.redirectToPrivacyPolicy(),
         ),
         SettingsDivider(),
         ListTile(
           title: Text(l10n.contactUs),
           leading: Icon(Icons.feedback),
+          onTap: () => SendFeedback.sendFeedback(),
         ),
         SettingsDivider(),
         ListTile(
           title: Text(l10n.deleteAppData),
           leading: Icon(Icons.delete),
+          onTap: () => ClearAppData.showClearAppDataDialog(context),
         ),
       ],
     );

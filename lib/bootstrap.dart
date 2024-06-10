@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:recall/app/repository/app_hive.dart';
@@ -33,5 +34,5 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   await AppHive.init();
   await ScreenUtil.ensureScreenSize();
   await GetStorage.init();
-  runApp(await builder());
+  runApp(Phoenix(child: await builder()));
 }

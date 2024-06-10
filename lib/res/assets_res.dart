@@ -9,4 +9,6 @@ class AssetsRes {
   static const String PLUGIN_NAME = 'recall';
   static const String PLUGIN_VERSION = '1.0.0+1';
   static const String AREYOUSURE = 'assets/images/areYouSure.webp';
+  static const String DELETE = 'assets/images/delete.webp';
+  static const String QUIZ = 'assets/images/quiz.webp';
 }

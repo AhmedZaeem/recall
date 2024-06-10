@@ -32,5 +32,6 @@
   "flashcardDeleteConfirmation": "هل أنت متأكد من أنك تريد حذف هذه البطاقة التعليمية؟",
   "flashcardDeleted": "تم حذف البطاقة التعليمية بنجاح",
   "editFlashcard": "تعديل البطاقة التعليمية",
-  "deleteFlashcard": "حذف البطاقة التعليمية"
+  "deleteFlashcard": "حذف البطاقة التعليمية",
+  "confirmAppDataDelete": "هل أنت متأكد من أنك تريد حذف جميع بيانات التطبيق؟"
 }

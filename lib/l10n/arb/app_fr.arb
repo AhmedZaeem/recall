@@ -32,5 +32,6 @@
   "update" : "Mettre à jour",
   "addCard": "Ajouter une nouvelle fiche",
   "term": "Terme",
-  "definition" : "Définition"
+  "definition" : "Définition",
+  "confirmAppDataDelete" : "Êtes-vous sûr de vouloir supprimer toutes les données de l'application?"
 }

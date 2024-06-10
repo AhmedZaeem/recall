@@ -12,6 +12,16 @@ class AppHive {
     await Hive.openBox(_boxName);
   }
 
+  static eraseData() async {
+    await Hive.openBox(_boxName).then(
+      (value) async {
+        if (value.isNotEmpty) {
+          await value.clear();
+        }
+      },
+    );
+  }
+
   static list() {
     return Hive.box(_boxName).values.toList();
   }

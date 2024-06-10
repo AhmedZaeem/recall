@@ -32,5 +32,6 @@
     "update" : "Update",
     "addCard": "Add a new flashcard",
     "term": "Term",
-    "definition" : "Definition"
+    "definition" : "Definition",
+    "confirmAppDataDelete" : "Are you sure you want to clear all app data?"
 }
