@@ -13,7 +13,7 @@ class SettingsDivider extends StatelessWidget {
       indent: 16.w,
       endIndent: 16.w,
       color: Theme.of(context).hintColor.withOpacity(.4),
-      thickness: .2.h,
+      thickness: .1.h,
     );
   }
 }
