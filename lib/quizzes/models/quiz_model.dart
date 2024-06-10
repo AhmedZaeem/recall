@@ -11,6 +11,13 @@ class QuizModel extends HiveObject {
   String title;
   @HiveField(2)
   List<QuestionModel>? questions;
-
-  QuizModel({required this.id, required this.title, this.questions});
+  @HiveField(3)
+  int maxScore = 0;
+  @HiveField(4)
+  int maxNumOfQuestions;
+  QuizModel(
+      {required this.id,
+      required this.title,
+      this.questions,
+      this.maxNumOfQuestions = 0});
 }
