@@ -16,7 +16,7 @@ class DeckQuizAlert {
       confirmBtnColor: Colors.red,
       customAsset: 'assets/images/quiz.webp',
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      widget: DeckQuizListVIew(decks: decks, l10n: l10n),
+      widget: DeckQuizListVIew(decks: decks, l10n: l10n, parent: context),
     );
   }
 }

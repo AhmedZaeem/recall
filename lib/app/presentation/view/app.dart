@@ -5,6 +5,7 @@ import 'package:recall/app/theme/theme_cubit.dart';
 import 'package:recall/home/home.dart';
 import 'package:recall/l10n/l10n.dart';
 import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
+import 'package:recall/quizzes/repository/quiz_cubit.dart';
 
 import '../../../flashcards_decks/repository/flashcard_deck_cubit.dart';
 
@@ -30,6 +31,9 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(
           create: (BuildContext context) => ThemeCubit(),
+        ),
+        BlocProvider<QuizCubit>(
+          create: (BuildContext context) => QuizCubit(),
         ),
         BlocProvider<LocalizationCubit>(
           create: (BuildContext context) => LocalizationCubit(),

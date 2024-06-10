@@ -35,5 +35,12 @@
   "definition": "定義",
   "confirmAppDataDelete": "アプリデータを削除してもよろしいですか？",
   "noDecks" : "デッキがありません",
-  "noExams" : "クイズがありません"
+  "noExams" : "クイズがありません",
+  "quizTitle" :  "クイズを作成するためのデッキを選択してください",
+  "deckMustContainMoreThanFourFlashcardsToCreateAQuiz" : "クイズを作成するには、デッキに4つ以上のフラッシュカードが含まれている必要があります",
+  "numberOfQuestions" : "質問数: ",
+  "create" : "作成",
+  "start" : "スタート",
+  "highScore" : "ハイスコア: ",
+  "quiz" : "クイズ"
 }

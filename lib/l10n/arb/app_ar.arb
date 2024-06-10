@@ -35,5 +35,12 @@
   "deleteFlashcard": "حذف البطاقة التعليمية",
   "confirmAppDataDelete": "هل أنت متأكد من أنك تريد حذف جميع بيانات التطبيق؟",
   "noDecks" : "لا توجد مجموعات بعد",
-  "noExams" : "لا توجد اختبارات بعد"
+  "noExams" : "لا توجد اختبارات بعد",
+  "quizTitle" : "اختر مجموعة بطاقات ﻹنشاء اختبار سريع",
+  "deckMustContainMoreThanFourFlashcardsToCreateAQuiz" : " يجب أن تحتوي المجموعة على أكثر من أربع بطاقات تعليمية ﻹنشاء اختبار",
+  "numberOfQuestions" : "عدد الأسئلة: ",
+  "create" : "إنشاء",
+  "start" : "ابدأ",
+  "highScore" : "أعلى نتيجة: ",
+  "quiz" : "اختبار"
 }

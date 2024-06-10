@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recall/quizzes/repository/quiz_cubit.dart';
 
 import '../../../flashcards_decks/repository/flashcard_deck_cubit.dart';
 import '../../../l10n/l10n.dart';
@@ -11,6 +12,7 @@ class AddQuizFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var decks = context.read<FlashcardDeckCubit>().state;
+    context.watch<QuizCubit>().state;
     AppLocalizations l10n = AppLocalizations.of(context);
     return FloatingActionButton(
       backgroundColor: Theme.of(context).primaryColor,

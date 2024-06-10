@@ -35,5 +35,12 @@
   "definition": "Definition",
   "confirmAppDataDelete": "Are you sure you want to clear all app data?",
   "noDecks" : "No decks available yet",
-  "noExams" : "No exams available yet"
+  "noExams" : "No exams available yet",
+  "quizTitle" : "Select a deck for creating a quiz",
+  "deckMustContainMoreThanFourFlashcardsToCreateAQuiz": "Sorry, Deck must contain at least 4 flashcards to create a quiz",
+  "numberOfQuestions": "Number of questions: ",
+  "create" : "Create",
+  "start" : "Start",
+  "highScore" : "High Score: ",
+  "quiz" : "Quiz"
 }

@@ -12,4 +12,5 @@ class AssetsRes {
   static const String DELETE = 'assets/images/delete.webp';
   static const String ERROR = 'assets/images/error.webp';
   static const String QUIZ = 'assets/images/quiz.webp';
+  static const String SCORE = 'assets/images/score.webp';
 }
