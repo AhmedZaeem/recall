@@ -13,14 +13,14 @@ class QuizView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    var quizzes = context.watch<QuizCubit>();
+    var quizzes = context.watch<QuizCubit>().state;
     return SingleChildScrollView(
       child: Column(
         children: [
           ViewHeader(title: l10n.quizzes),
-          quizzes.state.isEmpty
+          quizzes.isEmpty
               ? NoData(title: l10n.oops, message: l10n.noExams)
-              : QuizzesListView(quizzes: quizzes.state),
+              : QuizzesListView(quizzes: quizzes),
         ],
       ),
     );

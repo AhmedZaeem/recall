@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:recall/app/repository/app_hive.dart';
-import 'package:recall/quizzes/models/question_model.dart';
 import 'package:recall/quizzes/models/quiz_model.dart';
 
 class QuizCubit extends Cubit<List<QuizModel>> {
@@ -32,16 +31,16 @@ class QuizCubit extends Cubit<List<QuizModel>> {
     }
   }
 
-  Future addQuestion(QuestionModel question, int index) async {
-    try {
-      List<QuizModel> quizzes = state;
-      quizzes[index].questions == null
-          ? [question]
-          : quizzes[index].questions!.add(question);
-      emit(quizzes);
-    } on Exception {
-      return Future.error('error');
-    }
+  Future updateQuizHighScore(int key, int highScore) async {
+    QuizModel quiz = await AppHive.read(key, isQuiz: true);
+    quiz.maxScore < highScore
+        ? quiz.maxScore = highScore
+        : quiz.maxScore = quiz.maxScore;
+    await AppHive.save(key, quiz, isQuiz: true);
+    List<QuizModel> quizzes = [...state];
+    var oldQuiz = quizzes.where((element) => element.id == key).first;
+    oldQuiz = quiz;
+    emit(quizzes);
   }
 
   Future deleteQuizFromDeck(int deckId) async {
@@ -60,11 +59,11 @@ class QuizCubit extends Cubit<List<QuizModel>> {
     }
   }
 
-  Future deleteQuiz(int index) async {
+  Future deleteQuiz(int key) async {
     try {
-      await AppHive.delete(index, isQuiz: true);
-      List<QuizModel> quizzes = state;
-      quizzes.removeAt(index);
+      await AppHive.delete(key, isQuiz: true);
+      List<QuizModel> quizzes = [...state];
+      quizzes.removeWhere((element) => element.id == key);
       emit(quizzes);
     } on Exception {
       return Future.error('error');

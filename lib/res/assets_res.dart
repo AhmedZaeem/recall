@@ -9,8 +9,12 @@ class AssetsRes {
   static const String PLUGIN_NAME = 'recall';
   static const String PLUGIN_VERSION = '1.0.0+1';
   static const String AREYOUSURE = 'assets/images/areYouSure.webp';
+  static const String CONGRATS = 'assets/images/congrats.webp';
   static const String DELETE = 'assets/images/delete.webp';
   static const String ERROR = 'assets/images/error.webp';
+  static const String GOOD = 'assets/images/good.webp';
   static const String QUIZ = 'assets/images/quiz.webp';
+  static const String SAD = 'assets/images/sad.webp';
   static const String SCORE = 'assets/images/score.webp';
+  static const String WARNING = 'assets/images/warning.webp';
 }

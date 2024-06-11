@@ -33,6 +33,7 @@ deleteConfirmation(BuildContext context, int id, {bool isDeck = false}) async {
         await QuickAlert.show(
           context: context,
           type: QuickAlertType.success,
+          title: l10n.success,
           text: l10n.deckDeleted,
         );
       },

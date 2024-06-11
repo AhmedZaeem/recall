@@ -42,5 +42,16 @@
   "create" : "Créer",
   "start" : "Commencer",
   "highScore" : "Meilleur score: ",
-  "quiz" : "Quiz"
+  "quiz" : "Quiz",
+  "correctAnswer" : "Bonne réponse!",
+  "wrongAnswer" : "Mauvaise réponse!",
+  "areYouSureThatYouWantToRemoveThisQuiz" : "Êtes-vous sûr de vouloir supprimer ce quiz?",
+  "success" : "Succès",
+  "ohNoYouHaveToTryAgainAndTryToGetAHigherScore" : "Oh non! Vous devez réessayer et essayer d'obtenir un meilleur score",
+  "goodJobButYouCanDoButter" : "Bon travail! Mais vous pouvez faire mieux",
+  "fantastic" : "Fantastique!",
+  "great" : "Génial!",
+  "areYouSureYouWantToExitFromThisQuiz" : "Êtes-vous sûr de vouloir quitter ce quiz?",
+  "yourProgressWillBeLost" : "Votre progression sera perdue",
+  "yes" : "Oui"
 }

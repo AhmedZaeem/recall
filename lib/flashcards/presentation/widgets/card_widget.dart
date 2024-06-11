@@ -18,7 +18,10 @@ class CardWidget extends StatelessWidget {
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         decoration: BoxDecoration(
-            color: color ?? Colors.blue[700],
+            color: color ??
+                Colors.blue[Theme.of(context).brightness == Brightness.dark
+                    ? 800
+                    : 200],
             borderRadius: BorderRadius.circular(10.r),
             boxShadow: [
               BoxShadow(

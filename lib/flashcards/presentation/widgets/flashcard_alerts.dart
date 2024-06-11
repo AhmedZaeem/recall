@@ -17,8 +17,8 @@ class FlashcardAlerts {
     await QuickAlertDials.showDetailsAlert(context,
         confirmBtnText: l10n.save,
         cancelBtnText: l10n.cancel,
-        secondEditTextMaxChars: 700,
-        firstEditTextMaxChars: 120,
+        secondEditTextMaxChars: 450,
+        firstEditTextMaxChars: 150,
         title: l10n.addCard,
         firstHint: l10n.term,
         secondHint: l10n.definition,
@@ -51,6 +51,7 @@ class FlashcardAlerts {
               await QuickAlert.show(
                 context: context,
                 type: QuickAlertType.success,
+                title: l10n.success,
                 text: l10n.yayFlashcard,
               );
             }
@@ -110,6 +111,7 @@ class FlashcardAlerts {
               await QuickAlert.show(
                 context: context,
                 type: QuickAlertType.success,
+                title: l10n.success,
                 text: l10n.editedFlashcard,
               );
             }
@@ -152,6 +154,7 @@ class FlashcardAlerts {
           QuickAlert.show(
             context: context,
             type: QuickAlertType.success,
+            title: l10n.success,
             text: l10n.flashcardDeleted,
           );
         }

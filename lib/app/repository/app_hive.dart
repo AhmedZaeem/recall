@@ -21,7 +21,6 @@ class AppHive {
   static eraseData() async {
     await Hive.openBox(_boxName)
       ..clear();
-
     await Hive.openBox(_quizBoxName)
       ..clear();
   }

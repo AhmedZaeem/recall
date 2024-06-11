@@ -23,7 +23,8 @@ class FlashcardFlipWidget extends StatelessWidget {
       frontWidget: CardWidget(text: currentFlashcard.term),
       backWidget: CardWidget(
         text: currentFlashcard.definition,
-        color: Colors.red[700],
+        color: Colors
+            .red[Theme.of(context).brightness == Brightness.dark ? 800 : 200],
       ),
       rotateSide: RotateSide.left,
     );

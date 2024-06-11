@@ -42,6 +42,7 @@ class DeckAlerts {
               await QuickAlert.show(
                 context: context,
                 type: QuickAlertType.success,
+                title: l10n.success,
                 text: l10n.yay,
               );
             }
@@ -98,6 +99,7 @@ class DeckAlerts {
           QuickAlert.show(
             context: context,
             type: QuickAlertType.success,
+            title: l10n.success,
             text: l10n.edited,
           );
         }
@@ -131,6 +133,7 @@ class DeckAlerts {
           QuickAlert.show(
             context: context,
             type: QuickAlertType.success,
+            title: l10n.success,
             text: l10n.deckDeleted,
           );
         }

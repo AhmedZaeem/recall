@@ -42,5 +42,16 @@
   "create" : "作成",
   "start" : "スタート",
   "highScore" : "ハイスコア: ",
-  "quiz" : "クイズ"
+  "quiz" : "クイズ",
+  "correctAnswer" : "正解!",
+  "wrongAnswer" : "不正解!",
+  "areYouSureThatYouWantToRemoveThisQuiz" : "このクイズを削除してもよろしいですか？",
+  "success" : "成功",
+  "ohNoYouHaveToTryAgainAndTryToGetAHigherScore" : "あらら、もう一度やり直して、より高いスコアを目指してください",
+  "goodJobButYouCanDoButter" : "よくできました！でももっと頑張れます！",
+  "fantastic" : "素晴らしい！",
+  "great" : "素晴らしい！",
+  "areYouSureYouWantToExitFromThisQuiz" : "このクイズを終了してもよろしいですか？",
+  "yourProgressWillBeLost" : "進行状況が失われます",
+  "yes" : "はい"
 }
