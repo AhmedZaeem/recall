@@ -7,8 +7,10 @@ class NoData extends StatelessWidget {
     required this.title,
     required this.message,
   });
+
   final String title;
   final String message;
+
   @override
   Widget build(BuildContext context) {
     return Column(

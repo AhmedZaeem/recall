@@ -6,6 +6,7 @@ import '../../models/quiz_model.dart';
 
 class QuizzesListView extends StatelessWidget {
   final List<QuizModel> quizzes;
+
   QuizzesListView({required this.quizzes});
 
   @override

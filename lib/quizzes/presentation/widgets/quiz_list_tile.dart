@@ -7,7 +7,9 @@ import 'package:recall/quizzes/repository/quiz_model_view.dart';
 
 class QuizListTile extends StatelessWidget {
   const QuizListTile({super.key, required this.quiz});
+
   final QuizModel quiz;
+
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = AppLocalizations.of(context);

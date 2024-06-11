@@ -9,9 +9,11 @@ class NumberOfQuestionsSlider extends StatelessWidget {
     this.onChangeEnd,
     required this.flashcardsListLength,
   });
+
   final double sliderValue;
   final int flashcardsListLength;
   final Function(double value)? onChangeEnd;
+
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = AppLocalizations.of(context);

@@ -15,6 +15,7 @@ import '../widgets/question_tile.dart';
 class QuestionsView extends StatefulWidget {
   const QuestionsView(
       {super.key, required this.questions, required this.quizId});
+
   final List<QuestionModel> questions;
   final int quizId;
 

@@ -8,9 +8,11 @@ class QuestionTimerWidget extends StatelessWidget {
       required this.timeLeft,
       required this.timerIsActive,
       required this.isCorrect});
+
   final int timeLeft;
   final bool timerIsActive;
   final bool isCorrect;
+
   @override
   Widget build(BuildContext context) {
     AppLocalizations l10n = AppLocalizations.of(context);

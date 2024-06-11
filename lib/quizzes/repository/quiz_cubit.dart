@@ -6,6 +6,7 @@ class QuizCubit extends Cubit<List<QuizModel>> {
   QuizCubit() : super([]) {
     init();
   }
+
   init() {
     try {
       List data = AppHive.list(isQuiz: true);
