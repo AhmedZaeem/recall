@@ -28,6 +28,11 @@ class LocalizationCubit extends Cubit<Locale> {
         supportedLocales().where((element) => element == selectedLocale).first);
   }
 
+  eraseLocale() {
+    SettingsCache().cache.erase();
+    emit(supportedLocales()[1]);
+  }
+
   List<Locale> supportedLocales() {
     return AppLocalizations.supportedLocales;
   }

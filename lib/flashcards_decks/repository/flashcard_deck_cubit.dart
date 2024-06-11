@@ -28,6 +28,10 @@ class FlashcardDeckCubit extends Cubit<List<FlashcardsDeckModel>> {
     }).toList());
   }
 
+  clearDeck() {
+    emit([]);
+  }
+
   deleteDeck(int key) {
     emit(state.where((element) => element.deckId != key).toList());
   }

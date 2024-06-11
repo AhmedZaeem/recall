@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recall/flashcards_decks/repository/flashcard_deck_cubit.dart';
 import 'package:recall/l10n/l10n.dart';
+import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
+import 'package:recall/quizzes/repository/quiz_cubit.dart';
 import 'package:recall/settings/models/settings_list_tile_model.dart';
 import 'package:recall/settings/repository/send_feedback.dart';
 
@@ -15,6 +18,8 @@ class SettingsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    context.read<QuizCubit>();
+    context.read<FlashcardDeckCubit>();
     List<SettingsListTileModel> settingsListTileModel = [
       SettingsListTileModel(
         title: l10n.darkTheme,

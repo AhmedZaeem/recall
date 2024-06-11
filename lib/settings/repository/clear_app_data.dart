@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:recall/app/repository/app_hive.dart';
+import 'package:recall/app/theme/theme_cubit.dart';
+import 'package:recall/flashcards_decks/repository/flashcard_deck_cubit.dart';
+import 'package:recall/home/home.dart';
 import 'package:recall/l10n/l10n.dart';
-import 'package:recall/settings/repository/settings_cache.dart';
+import 'package:recall/l10n/localization_cubit/localization_cubit.dart';
+import 'package:recall/quizzes/repository/quiz_cubit.dart';
 
 class ClearAppData {
-  static void clearAppData(BuildContext context) async {
-    await SettingsCache().cache.erase();
+  static Future clearAppData(BuildContext context) async {
     await AppHive.eraseData();
+    context.read<QuizCubit>().clearQuizzes();
+    context.read<LocalizationCubit>().eraseLocale();
+    context.read<FlashcardDeckCubit>().clearDeck();
+    context.read<ThemeCubit>().clearTheme();
     if (context.mounted) {
-      Phoenix.rebirth(context);
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomeView()));
     }
   }
 
@@ -32,7 +39,7 @@ class ClearAppData {
       confirmBtnText: l10n.delete,
       confirmBtnColor: Colors.red,
       cancelBtnText: l10n.cancel,
-      onConfirmBtnTap: () => clearAppData(context),
+      onConfirmBtnTap: () async => await clearAppData(context),
     );
   }
 }

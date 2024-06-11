@@ -6,6 +6,9 @@ class QuizCubit extends Cubit<List<QuizModel>> {
   QuizCubit() : super([]) {
     init();
   }
+  clearQuizzes() {
+    emit([]);
+  }
 
   init() {
     try {

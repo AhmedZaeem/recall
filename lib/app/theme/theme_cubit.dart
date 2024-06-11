@@ -6,6 +6,9 @@ class ThemeCubit extends Cubit<ThemeMode> {
   ThemeCubit() : super(ThemeMode.system) {
     initTheme();
   }
+  clearTheme() {
+    emit(ThemeMode.system);
+  }
 
   initTheme() {
     bool? isDark = SettingsCache().cache.read('isDark');
