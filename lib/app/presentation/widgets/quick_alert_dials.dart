@@ -25,34 +25,36 @@ class QuickAlertDials {
       cancelBtnText: cancelBtnText,
       showCancelBtn: true,
       onCancelBtnTap: () => Navigator.pop(context),
-      widget: Column(
-        children: <Widget>[
-          SizedBox(height: 16),
-          Text(title, style: Theme.of(context).textTheme.titleLarge),
-          SizedBox(height: 16),
-          TextFormField(
-            maxLength: firstEditTextMaxChars,
-            controller: firstController,
-            style: Theme.of(context).textTheme.titleSmall,
-            decoration: InputDecoration(
-              hintText: firstHint,
-              counter: const SizedBox.shrink(),
+      widget: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 8),
+            Text(title, style: Theme.of(context).textTheme.titleLarge),
+            SizedBox(height: 16),
+            TextFormField(
+              maxLength: firstEditTextMaxChars,
+              controller: firstController,
+              style: Theme.of(context).textTheme.titleSmall,
+              decoration: InputDecoration(
+                hintText: firstHint,
+                counter: const SizedBox.shrink(),
+              ),
+              textInputAction: TextInputAction.next,
             ),
-            textInputAction: TextInputAction.next,
-          ),
-          SizedBox(height: 16),
-          TextFormField(
-            controller: secondController,
-            maxLength: secondEditTextMaxChars,
-            maxLines: 2,
-            style: Theme.of(context).textTheme.labelSmall,
-            decoration: InputDecoration(
-              hintText: secondHint,
-              counter: const SizedBox.shrink(),
+            SizedBox(height: 16),
+            TextFormField(
+              controller: secondController,
+              maxLength: secondEditTextMaxChars,
+              maxLines: 2,
+              style: Theme.of(context).textTheme.labelSmall,
+              decoration: InputDecoration(
+                hintText: secondHint,
+                counter: const SizedBox.shrink(),
+              ),
+              textInputAction: TextInputAction.next,
             ),
-            textInputAction: TextInputAction.next,
-          ),
-        ],
+          ],
+        ),
       ),
       onConfirmBtnTap: onConfirmBtnTap,
     );

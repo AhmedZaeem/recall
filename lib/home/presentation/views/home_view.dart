@@ -27,6 +27,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: false,
       floatingActionButton: _currentIndex == 0
           ? AddDeckFloatingActionButton()
           : _currentIndex == 1

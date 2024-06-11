@@ -42,6 +42,9 @@ class QuizModelView {
       titleColor: Theme.of(context).brightness == Brightness.light
           ? Colors.black
           : Colors.white,
+      confirmBtnText: l10n.yes,
+      confirmBtnColor: Colors.red,
+      cancelBtnText: l10n.cancel,
       onConfirmBtnTap: () async {
         await context.read<QuizCubit>().deleteQuiz(quiz.id);
         Navigator.pop(context);

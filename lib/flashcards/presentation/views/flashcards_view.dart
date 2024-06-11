@@ -17,7 +17,7 @@ class FlashcardsView extends StatelessWidget {
     context.watch<FlashcardDeckCubit>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flashcards'),
+        title: Text(deck.deckName),
       ),
       body: Padding(
         padding: EdgeInsets.only(right: 16.w, left: 16.w, top: 40.h),

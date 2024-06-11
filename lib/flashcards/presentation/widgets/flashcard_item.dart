@@ -47,7 +47,7 @@ class FlashcardItem extends StatelessWidget {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 12.h),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

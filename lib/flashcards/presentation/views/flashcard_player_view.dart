@@ -39,12 +39,14 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
 
   @override
   Widget build(BuildContext context) {
+    String locale = Localizations.localeOf(context).languageCode;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.deck.deckName),
       ),
       body: PageView.builder(
+        reverse: locale == 'ar',
         controller: pageController,
         itemBuilder: (BuildContext context, int index) {
           var currentFlashcard = widget.deck.flashcards[index];
@@ -61,30 +63,18 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  NavigationButton(
-                      icon: Icons.skip_previous,
-                      enabled: index != 0,
-                      onPressed: () {
-                        pageController.previousPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn,
-                        );
-                      }),
+                  locale == 'ar'
+                      ? _buildNavigatorNext(index)
+                      : _buildNavigatorBack(index),
                   NavigationButton(
                     onPressed: () async {
                       await controller.flipcard();
                     },
                     icon: Icons.play_arrow,
                   ),
-                  NavigationButton(
-                    enabled: index != widget.deck.flashcards.length - 1,
-                    onPressed: () {
-                      pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut);
-                    },
-                    icon: Icons.skip_next,
-                  ),
+                  locale == 'ar'
+                      ? _buildNavigatorBack(index)
+                      : _buildNavigatorNext(index),
                 ],
               ),
             ],
@@ -92,6 +82,30 @@ class _FlashcardPlayerViewState extends State<FlashcardPlayerView> {
         },
         itemCount: widget.deck.flashcards.length,
       ),
+    );
+  }
+
+  _buildNavigatorBack(int index) {
+    return NavigationButton(
+        icon: Icons.skip_previous,
+        enabled: index != 0,
+        onPressed: () {
+          pageController.previousPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeIn,
+          );
+        });
+  }
+
+  _buildNavigatorNext(int index) {
+    return NavigationButton(
+      enabled: index != widget.deck.flashcards.length - 1,
+      onPressed: () {
+        pageController.nextPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut);
+      },
+      icon: Icons.skip_next,
     );
   }
 }
