@@ -42,8 +42,6 @@ class QuizCubit extends Cubit<List<QuizModel>> {
         : quiz.maxScore = quiz.maxScore;
     await AppHive.save(key, quiz, isQuiz: true);
     List<QuizModel> quizzes = [...state];
-    var oldQuiz = quizzes.where((element) => element.id == key).first;
-    oldQuiz = quiz;
     emit(quizzes);
   }
 
